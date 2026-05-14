@@ -1,0 +1,408 @@
+/* -------------------------------------------------------
+   Base & Reset
+------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:       #fafaf8;
+  --fg:       #171717;
+  --muted:    #545454;
+  --accent:   #2f2f2f;
+  --link:     var(--fg);
+  --link-underline: #7f7f78;
+  --border:   #d8d8d1;
+  --max-w:    720px;
+  --nav-h:    56px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 24px);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+  font-size: 21px;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* -------------------------------------------------------
+   Typography
+------------------------------------------------------- */
+
+h1, h2, h3 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+h1 { font-size: 2.15rem; margin-bottom: 0.25rem; }
+h2 { font-size: 1.5rem;  margin-bottom: 1rem; }
+h3 { font-size: 1.05rem; font-style: italic; margin-bottom: 0.5rem; }
+
+p { margin-bottom: 1.05rem; }
+p:last-child { margin-bottom: 0; }
+
+/* Links read like normal text, with the underline doing the work. */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-decoration-thickness: 0.045em;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--link);
+  text-decoration-color: var(--fg);
+  opacity: 0.75;
+}
+
+em { font-style: italic; }
+strong { font-weight: 500; }
+
+/* -------------------------------------------------------
+   Nav
+------------------------------------------------------- */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.75rem;
+}
+
+nav ul li a {
+  font-size: 0.95rem;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: var(--fg);
+}
+
+/* -------------------------------------------------------
+   Main content
+------------------------------------------------------- */
+
+main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 3rem 0;
+}
+
+section {
+  margin-bottom: 0;
+}
+
+/* -------------------------------------------------------
+   Hero
+------------------------------------------------------- */
+
+.hero {
+  display: block;
+}
+
+.hero::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.hero h1 {
+  margin-bottom: 0.2rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.48;
+}
+
+.hero-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.hero-links a {
+  font-size: 0.925rem;
+  letter-spacing: 0.02em;
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 3px;
+}
+
+.hero-links a:hover {
+  text-decoration-color: var(--fg);
+  opacity: 0.75;
+}
+
+.hero-photo {
+  float: right;
+  margin: 0.25rem 0 1.5rem 2rem;
+}
+
+.hero-photo img {
+  width: 150px;
+  height: 198px;
+  object-fit: cover;
+  object-position: center 35%;
+  border: 1px solid rgba(216, 216, 209, 0.95);
+  border-radius: 3px;
+  filter: saturate(0.94) contrast(0.98);
+  display: block;
+  background: var(--border);
+  box-shadow: 0 5px 14px rgba(23, 23, 23, 0.06);
+}
+
+/* -------------------------------------------------------
+   Research
+------------------------------------------------------- */
+
+.paper-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.paper {
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+}
+
+.paper-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.paper-title a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 3px;
+}
+
+.paper-title a:hover {
+  text-decoration-color: var(--fg);
+}
+
+.paper-meta {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.paper-abstract {
+  font-size: 0.98rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.paper-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: var(--border);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+}
+
+/* -------------------------------------------------------
+   Writing
+------------------------------------------------------- */
+
+.writing-list {
+  list-style: none;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.writing-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.writing-list a {
+  color: var(--fg);
+  font-size: 1rem;
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 3px;
+}
+
+.writing-list a:hover {
+  text-decoration-color: var(--fg);
+}
+
+.date {
+  font-size: 0.9rem;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* -------------------------------------------------------
+   CV
+------------------------------------------------------- */
+
+.cv-block {
+  margin-bottom: 1.75rem;
+}
+
+.cv-entry {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.cv-year {
+  color: var(--muted);
+  white-space: nowrap;
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+/* -------------------------------------------------------
+   Responsive
+------------------------------------------------------- */
+
+@media (max-width: 580px) {
+  :root {
+    --nav-h: auto;
+  }
+
+  html {
+    scroll-padding-top: 88px;
+  }
+
+  body {
+    font-size: 19px;
+    line-height: 1.62;
+  }
+
+  nav {
+    min-height: 48px;
+    height: auto;
+  }
+
+  main {
+    padding: 2.25rem 1.1rem 3rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  hr {
+    margin: 2.4rem 0;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.44;
+  }
+
+  .hero-photo {
+    display: none;
+  }
+
+  .nav-inner {
+    padding: 0.55rem 1rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem 0.95rem;
+    line-height: 1.2;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  .hero-links {
+    gap: 0.45rem 1rem;
+  }
+
+  .paper {
+    padding-left: 0.8rem;
+  }
+
+  .paper-meta,
+  .paper-abstract,
+  .cv-entry,
+  .writing-list a {
+    font-size: 0.98rem;
+  }
+
+  .cv-entry {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .writing-list li {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+}
