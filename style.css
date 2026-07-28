@@ -24,7 +24,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--nav-h) + 24px);
 }
 
 body {
@@ -100,18 +99,25 @@ nav {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.75rem;
+  gap: 1.5rem;
 }
 
 nav ul li a {
   font-size: 0.95rem;
-  color: var(--accent);
+  color: var(--muted);
   letter-spacing: 0.02em;
   text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
 }
 
 nav ul li a:hover {
   color: var(--fg);
+}
+
+nav ul li a.active {
+  color: var(--fg);
+  border-bottom-color: var(--link-underline);
 }
 
 /* -------------------------------------------------------
@@ -367,7 +373,7 @@ section {
   }
 
   .nav-inner {
-    padding: 0.55rem 1rem;
+    padding: 0.6rem 1rem;
   }
 
   nav ul {
