@@ -303,6 +303,95 @@ section {
 }
 
 /* -------------------------------------------------------
+   Reading log
+------------------------------------------------------- */
+
+.page-intro {
+  max-width: 650px;
+  margin-bottom: 2.5rem;
+}
+
+.page-intro p {
+  color: var(--accent);
+}
+
+.reading-timeline {
+  list-style: none;
+  margin-left: 0.25rem;
+  padding-left: 1.75rem;
+  border-left: 1px solid var(--border);
+}
+
+.reading-entry {
+  position: relative;
+  padding: 0 0 2.25rem 0.15rem;
+}
+
+.reading-entry:last-child {
+  padding-bottom: 0;
+}
+
+.reading-entry::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: -2.08rem;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: var(--muted);
+  box-shadow: 0 0 0 1px var(--border);
+}
+
+.reading-entry time {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.035em;
+  line-height: 1.4;
+}
+
+.reading-heading {
+  display: block;
+}
+
+.reading-heading h3 {
+  margin: 0;
+  color: var(--fg);
+  font-size: 1.05rem;
+  font-style: normal;
+  line-height: 1.4;
+}
+
+.reading-author {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.reading-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.2rem;
+}
+
+.reading-category {
+  flex-shrink: 0;
+  padding: 0.08rem 0.42rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.025em;
+  line-height: 1.45;
+}
+
+/* -------------------------------------------------------
    CV
 ------------------------------------------------------- */
 
@@ -411,4 +500,23 @@ section {
     flex-direction: column;
     gap: 0.1rem;
   }
+
+  .page-intro {
+    margin-bottom: 2rem;
+  }
+
+  .reading-timeline {
+    padding-left: 1.35rem;
+  }
+
+  .reading-entry::before {
+    left: -1.68rem;
+  }
+
+  .reading-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
 }
