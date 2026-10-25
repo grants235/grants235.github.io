@@ -208,22 +208,35 @@ section {
    Research
 ------------------------------------------------------- */
 
+.research-intro {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-top: 0.4rem;
+}
+
 .paper-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-top: 1.5rem;
+  gap: 0;
+  margin-top: 2rem;
 }
 
 .paper {
-  padding-left: 1rem;
-  border-left: 2px solid var(--border);
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.paper a {
+  cursor: pointer;
 }
 
 .paper-title {
-  font-size: 1.05rem;
+  font-size: 1.25rem;
+  font-style: normal;
   font-weight: 500;
-  margin-bottom: 0.2rem;
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
 }
 
 .paper-title a {
@@ -238,15 +251,62 @@ section {
 }
 
 .paper-meta {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
   color: var(--muted);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.paper-venue {
+  display: block;
+  margin-top: 0.15rem;
 }
 
 .paper-abstract {
-  font-size: 0.98rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
   color: var(--accent);
-  margin-bottom: 0.5rem;
+  margin-top: 0.65rem;
+  margin-bottom: 0;
+}
+
+.paper-heading {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.paper-toggle {
+  position: absolute;
+  top: 0;
+  left: -0.35rem;
+  width: 1.5rem;
+  height: 1.6875rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.paper-toggle span {
+  display: inline-block;
+  transition: transform 0.15s;
+}
+
+.paper-toggle[aria-expanded="true"] span {
+  transform: rotate(90deg);
+}
+
+.paper-toggle:hover {
+  color: var(--fg);
+}
+
+.paper-toggle:focus-visible {
+  outline: 1px solid var(--fg);
+  outline-offset: 4px;
 }
 
 .paper-tags {
@@ -480,12 +540,6 @@ section {
     gap: 0.45rem 1rem;
   }
 
-  .paper {
-    padding-left: 0.8rem;
-  }
-
-  .paper-meta,
-  .paper-abstract,
   .cv-entry,
   .writing-list a {
     font-size: 0.98rem;

@@ -23,70 +23,91 @@
   <main>
 
     <section id="research">
-      <h2>Recent (and Upcoming) Work</h2>
+      <h1>Research</h1>
+      <p class="research-intro">Recent and upcoming work</p>
 
       <div class="paper-list">
 
         <div class="paper">
-          <p class="paper-title">
+          <div class="paper-heading">
+            <button class="paper-toggle" type="button" aria-expanded="false" aria-controls="paper-summary-1" aria-label="Toggle summary for Specifying Faithfulness: Evaluating Algorithmic Explanations in Context"><span aria-hidden="true">▸</span></button>
+            <h3 class="paper-title">
             Specifying Faithfulness: Evaluating Algorithmic Explanations in Context
-          </p>
+            </h3>
+          </div>
           <p class="paper-meta">
             <strong>Grant Shanklin</strong>, Jiří Němeček, Asia J. Biega.
-            Under submission at <em>ACM FAccT 2027</em>.
+            <span class="paper-venue">Under submission at <em>ACM FAccT 2027</em>.</span>
           </p>
-          <p class="paper-abstract">
+          <div class="paper-summary" id="paper-summary-1" hidden>
+            <p class="paper-abstract">
             Develops a unified framework for specifying and evaluating the faithfulness of
             algorithmic explanations, showing through adverse action notices in consumer credit
             how explanatory, institutional, and normative considerations can guide the choice of
             context-appropriate evaluation criteria.
-          </p>
+            </p>
+          </div>
         </div>
 
         <div class="paper">
-          <p class="paper-title">
+          <div class="paper-heading">
+            <button class="paper-toggle" type="button" aria-expanded="false" aria-controls="paper-summary-2" aria-label="Toggle summary for How Legal AI Architectures Take Sides on Jurisprudential Debates"><span aria-hidden="true">▸</span></button>
+            <h3 class="paper-title">
             <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7666719" target="_blank" rel="noopener">How Legal AI Architectures Take Sides on Jurisprudential Debates</a>
-          </p>
+            </h3>
+          </div>
           <p class="paper-meta">
             <strong>Grant Shanklin</strong>, Claudio Novelli, Giovanni Sartor, Luciano Floridi.
-            Preprint. Under submission at <em>Artificial Intelligence and Law</em>.
+            <span class="paper-venue">Preprint. Under submission at <em>Artificial Intelligence and Law</em>.</span>
           </p>
-          <p class="paper-abstract">
+          <div class="paper-summary" id="paper-summary-2" hidden>
+            <p class="paper-abstract">
             Develops a methodology for identifying how legal AI architectures represent knowledge,
             organize inference, and constrain inputs and outputs, applying it to four architectural
             families and drawing on debates in legal theory to articulate their implicit
             assumptions about legal reasoning.
-          </p>
+            </p>
+          </div>
         </div>
 
         <div class="paper">
-          <p class="paper-title">
+          <div class="paper-heading">
+            <button class="paper-toggle" type="button" aria-expanded="false" aria-controls="paper-summary-3" aria-label="Toggle summary for The Case for Contextual Copyleft: Licensing Open-Source Training Data and Generative AI"><span aria-hidden="true">▸</span></button>
+            <h3 class="paper-title">
             <a href="https://doi.org/10.1093/ijlit/eaag003" target="_blank" rel="noopener">The Case for Contextual Copyleft: Licensing Open-Source Training Data and Generative AI</a>
-          </p>
+            </h3>
+          </div>
           <p class="paper-meta">
             <strong>Grant Shanklin</strong>, Emmie Hine, Claudio Novelli, Tyler Schroder, Luciano Floridi.
-            <em>International Journal of Law and Information Technology</em>, 2026.
+            <span class="paper-venue"><em>International Journal of Law and Information Technology</em>, 2026.</span>
           </p>
-          <p class="paper-abstract">
+          <div class="paper-summary" id="paper-summary-3" hidden>
+            <p class="paper-abstract">
             Introduces the Contextual Copyleft AI (CCAI) licence, a novel mechanism extending
             copyleft obligations from open-source training data to the generative models trained on it,
             enhancing developer control and mitigating open-washing.
-          </p>
+            </p>
+          </div>
         </div>
 
         <div class="paper">
-          <p class="paper-title">
+          <div class="paper-heading">
+            <button class="paper-toggle" type="button" aria-expanded="false" aria-controls="paper-summary-4" aria-label="Toggle summary for Open-Source AI Made in the EU: Why it is a Good Idea"><span aria-hidden="true">▸</span></button>
+            <h3 class="paper-title">
             <a href="https://doi.org/10.1007/s11023-025-09728-x" target="_blank" rel="noopener">Open-Source AI Made in the EU: Why it is a Good Idea</a>
-          </p>
+            </h3>
+          </div>
           <p class="paper-meta">
             Luciano Floridi, Carlotta Buttaboni, Emmie Hine, Claudio Novelli, Tyler Schroder, <strong>Grant Shanklin</strong>.
-            <em>Minds and Machines</em>, vol. 35, no. 2, pp. 1&ndash;10, 2025.
+            <span class="paper-venue"><em>Minds and Machines</em>, vol. 35, no. 2, pp. 1&ndash;10, 2025.</span>
           </p>
-          <p class="paper-abstract">
+          <div class="paper-summary" id="paper-summary-4" hidden>
+            <p class="paper-abstract">
             Argues that the EU&rsquo;s regulatory framework and ethical commitments uniquely position it
             to produce trustworthy open-source foundation models, offering a competitive alternative
             to proprietary and foreign AI systems.
-          </p>
+            </p>
+          </div>
         </div>
 
       </div>
@@ -94,5 +115,16 @@
 
   </main>
 
+  <script>
+    document.querySelectorAll('.paper').forEach((paper) => {
+      const toggle = paper.querySelector('.paper-toggle');
+      paper.addEventListener('click', (event) => {
+        if (event.target.closest('a') || window.getSelection().toString()) return;
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        document.getElementById(toggle.getAttribute('aria-controls')).hidden = expanded;
+      });
+    });
+  </script>
 </body>
 </html>
